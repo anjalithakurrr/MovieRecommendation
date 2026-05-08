@@ -1,5 +1,3 @@
-# MovieRecommendation
-Content-based movie recommendation system using TF-IDF and cosine similarity, with an interactive Streamlit web app
 # 🎬 MovieRecommendation
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat&logo=python)
