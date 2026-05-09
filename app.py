@@ -1,13 +1,18 @@
 import streamlit as st
 import pandas as pd
-from recommend import get_recommendations
-
-df = pd.read_csv('data/movies.csv')
-movie_list = df['title'].tolist()
+import os
+from recommend import get_recommendations, build_model
 
 st.set_page_config(page_title="Movie Recommender", page_icon="🎬")
 st.title("🎬 Movie Recommendation System")
 st.markdown("Select a movie you like and get 10 similar recommendations!")
+
+if not os.path.exists('similarity.pkl'):
+    with st.spinner('Building recommendation model... please wait'):
+        build_model()
+
+df = pd.read_csv('data/movies.csv')
+movie_list = df['title'].tolist()
 
 movie = st.selectbox("Choose a movie", movie_list)
 
